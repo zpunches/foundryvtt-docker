@@ -1,0 +1,22 @@
+version: '3'
+services:
+  foundryvtt:
+    image: zpunches/foundryvtt:latest
+    container_name: vtt
+    ports:
+      - 30000:30000
+    volumes:
+      - ../foundryvtt-data:/data/foundryvtt
+      - ./:/host
+    labels:
+      - traefik.default.protocol=http
+      - traefik.docker.network=web
+      - traefik.enable=true
+      - traefik.frontend.rule="Host:vtt.zpunches.com"
+      - traefik.port=30000
+    networks:
+      - web
+    restart: unless-stopped
+networks:
+  web:
+    external: true
