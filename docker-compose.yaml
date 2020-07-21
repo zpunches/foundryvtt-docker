@@ -12,7 +12,7 @@ services:
       - traefik.default.protocol=http
       - traefik.docker.network=web
       - traefik.enable=true
-      - traefik.frontend.rule="Host:vtt.zpunches.com"
+      - traefik.frontend.rule="Host:murderhobos.io"
       - traefik.port=30000
     networks:
       - web
